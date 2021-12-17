@@ -105,7 +105,7 @@ st.header("Bagian Ketiga")
 st.write("Grafik yang menunjukan B-besar negara dengan jumlahproduksi terbesar secara kumulatif keseluruhan tahun, dimana nilai B dapat dipilih oleh user secara interaktif")
 
 st.sidebar.subheader("Konfigurasi Bagian 3")
-b_ = st.sidebar.number_input("Masukkan jumlah besar negara teratas yang diinginkan", minimal=1, maximal=None)
+b_ = st.sidebar.number_input("Masukkan jumlah besar negara teratas yang diinginkan", min_value=1, max_value=None)
 df = datafr
 df1 = datafr_info
 kode_negara = df["kode_negara"].tolist()
