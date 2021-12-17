@@ -2,7 +2,7 @@ import json
 import numpy as np
 import pandas as pd
 
-class HandleofCSV: 
+class HandleofCSV(): 
     def yuu(self,File_name):
         self.File_name = File_name
         df = pd.read_csv(File_name)
@@ -25,7 +25,7 @@ class HandleofCSV:
         with open("{}.json".format(FileJson), "w") as write_file:
             json.dump(daf,write_file)
 
-class HandleofJson:
+class HandleofJson():
     def yuuk(self,File_name):
         self.File_name = File_name
         with open(File_name, "r") as read_file:
