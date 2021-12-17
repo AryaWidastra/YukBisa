@@ -55,14 +55,12 @@ if len(dict) == 0:
     st.write("Tidak ada Data")
 else:
     st.write(pd.DataFrame(dict))
-
-plt.title("Grafik Produksi Minyak Mentah Terhadap Waktu Negara {}".format(negara))
-plt.plot(T,P,label="Actual")
-'''plt.plot(T,trend,label="Trend\n{}".format(persamaan))'''
-plt.xlabel("Tahun")
-plt.ylabel("Jumlah Produksi")
-plt.legend()
-st.pyplot(plt)
+    plt.title("Grafik Produksi Minyak Mentah Terhadap Waktu Negara {}".format(negara))
+    plt.plot(T,P,label="Actual")
+    plt.xlabel("Tahun")
+    plt.ylabel("Jumlah Produksi")
+    plt.legend()
+    st.pyplot(plt)
 
 ### (b) B-besar negara dengan jumlah produksi terbesar pada tahun T"
 st.header("Bagian Kedua")
