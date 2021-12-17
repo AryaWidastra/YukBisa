@@ -51,7 +51,10 @@ T = datafr[datafr["kode_negara"] == kode_negara] ["tahun"].tolist()
 P = datafr[datafr["kode_negara"] == kode_negara] ["produksi"].tolist()
 
 dict = {"tahun":T,"produksi":P}
-st.write(pd.DataFrame(dict))
+if len(dict) == 0:
+    st.write("Tidak ada Data")
+else:
+    st.write(pd.DataFrame(dict))
 
 plt.title("Grafik Produksi Minyak Mentah Terhadap Waktu Negara {}".format(negara))
 plt.plot(T,P,label="Actual")
