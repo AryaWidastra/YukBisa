@@ -67,7 +67,7 @@ st.header("Bagian Kedua")
 st.write("Grafik yang menunjukan B-besar negara dengan jumlah produksi terbesar pada tahun T")
 
 st.sidebar.subheader("Konfigurasi Bagian 2")
-b = st.sidebar.number_input("Masukkan jumlah besar negara teratas yang diinginkan",  minimal=1, maximal=None)
+b = st.sidebar.number_input("Masukkan jumlah besar negara teratas yang diinginkan",  min_value=1, max_value=None)
 t = st.sidebar.number_input("Masukkan tahun produksi",  min_value=1, max_value=None)
 
 df = datafr
@@ -84,8 +84,7 @@ for kode in kode_negara:
         negara = df1[df1["alpha-3"] == kode] ["name"].tolist()[0]
         Produksi_terbanyak.append(max(produksi))
         negara_tahun.append(negara)
-    except:
-        continue
+    except: continue
         
 dict = {"negara":negara_tahun,"Produksi_terbanyak":Produksi_terbanyak}
 df2 = pd.DataFrame(dict)
