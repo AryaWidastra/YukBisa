@@ -2,8 +2,8 @@ import json
 import numpy as np
 import pandas as pd
 
-class HandleofCSV(): 
-    def yuu(self,File_name):
+class HandleofCSV: 
+    def __init__(self,File_name):
         self.File_name = File_name
         df = pd.read_csv(File_name)
         self.data = {}
@@ -25,8 +25,8 @@ class HandleofCSV():
         with open("{}.json".format(FileJson), "w") as write_file:
             json.dump(daf,write_file)
 
-class HandleofJson():
-    def yuuk(self,File_name):
+class HandleofJson:
+    def __init__(self,File_name):
         self.File_name = File_name
         with open(File_name, "r") as read_file:
             self.data = json.load(read_file)
@@ -40,9 +40,3 @@ class HandleofJson():
         self.dataFrame = pd.DataFrame(ran)
     def JsonToCSV(self,FileCSV):
         self.dataFrame.to_csv('{}.csv'.format(FileCSV), index=False) 
-        
-# tes = HandleofCSV('produksi_minyak_mentah.csv')
-# a.CSVtoJson('tes')
-
-# tes = HandleofJson('kode_negara_lengkap.json')
-# print(a.dataFrame)
