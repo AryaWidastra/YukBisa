@@ -41,7 +41,7 @@ datafr_info = JSON.dataFrame
 
 ListNegara = datafr_info["name"].tolist()
 negara = st.selectbox("Pilih nama negara: ", ListNegara) 
-kode_negara = datafr_info[datafr_info["name"] == negara]["alpha-3"].tolist()[0]
+kode_negara = (datafr_info[datafr_info["name"] == negara]["alpha-3"].tolist()[0])
 
 st.write("Kode negara:", kode_negara)
 st.write("Negara:",negara)
