@@ -108,17 +108,17 @@ st.pyplot(plt)
 
 ## (c) Grafik yang menunjukan B-besar negara dengan jumlah produksi terbesar secara kumulatif keseluruhan tahun
 from matplotlib.pyplot import colormaps
+st.header("Bagian Ketiga")
+st.write("Grafik yang menunjukan B-besar negara dengan jumlahproduksi terbesar secara kumulatif keseluruhan tahun, dimana nilai B dapat dipilih oleh user secara interaktif")
 
-
-st.header('Bagian Ketiga')
-b_ = st.number_input("Masukkan jumlah besar negara teratas yang diinginkan", minimal=1, maximal=None)
+st.sidebar.subheader("Konfigurasi Bagian 3")
+b_ = st.sidebar.number_input("Masukkan jumlah besar negara teratas yang diinginkan", minimal=1, maximal=None)
 df = datafr
 df1 = datafr_info
-kode_negara = df['kode_negara'].tolist()
+kode_negara = df["kode_negara"].tolist()
 kode_negara = list(dict.fromkeys(kode_negara))
 Total_produksi = []
 negara = []
-
 for kode in kode_negara:
     try:
         produksi = df[df["kode_negara"] == kode] ["produksi"].tolist()
@@ -127,14 +127,13 @@ for kode in kode_negara:
         negara.append(negara)
     except:
         continue
-        
-dict = {'negara':negara,'Total_produksi':Total_produksi}
+dict = {"negara":negara,"Total_produksi":Total_produksi}
 df2 = pd.DataFrame(dict)
 df2 = df2.sort_values('Total_produksi',ascending=False).reset_index()
 plt.clf()
 
-plt.title('{b} Besar Negara dengan Produksi Terbesar Keseluruhan'.format(b=b_))
-plt.bar(df2['negara'][:b_],df2['Total_produksi'][:b_],width=0.5, bottom=None, align="center",colormaps="Diverging", edgecolor="rosybrown", data=None, zorder=3)
+plt.title("{b} Besar Negara dengan Produksi Terbesar Keseluruhan".format(b=b_))
+plt.bar(df2["negara'][:b_],df2['Total_produksi"][:b_],width=0.5, bottom=None, align="center",colormaps="Diverging", edgecolor="rosybrown", data=None, zorder=3)
 plt.grid(True, color="maroon", linewidth="0.5", linestyle="-.", zorder=0)
 plt.xlabel('Negara')
 plt.ylabel('Total produksi')
@@ -142,7 +141,13 @@ st.pyplot(plt)
 
 ## (d) INFORMASI ###
 st.header("Bagian Keempat")
-T = st.number_input("Tahun Produksi", minimal=1971, maximal=2015)
+st.write(" Informasi yang menyebutkan:")
+st.write("-nama lengkap negara,kode negara,region,dan sub-region dengan jumlah produksi terbesar pada tahun yang dipilih dan keseluruhan tahun.")
+st.write("-nama lengkap negara,kode negara,region,dan sub-region dengan jumlah produksi terkecil pada tahun yang dipilih dan keseluruhan tahun.")
+st.write("-nama lengkap negara,kode negara,region,dan sub-region dengan jumlah produksi = 0 pada tahun yang dipilih dan keseluruhan tahun.")
+
+st.sidebar.subheader("Konfigurasi Bagian 4")
+T = st.sidebar.number_input("Tahun Produksi", minimal=1971, maximal=2015)
 df = CSV.dataFrame
 df1 = JSON.dataFrame
 tahun = list(dict.fromkeys(df["tahun"].tolist()))
@@ -183,7 +188,7 @@ for t in tahun:
     dict_nol["produksi"].append(zero_prod)
 df_maks = pd.DataFrame(dict_maks)
 df_min = pd.DataFrame(dict_min)
-df_zero = pd.DataFrame(dict_nol)
+df_nol = pd.DataFrame(dict_nol)
 
 st.write("Info Produksi Maksimum Tahun ke-{}".format(T))
 st.write(df_maks[df_maks["tahun"]==T])
@@ -194,6 +199,6 @@ st.write(df_min[df_min["tahun"]==T])
 st.write("Tabel Min (Not Zero) per Tahun")
 st.write(df_min)
 st.write("Info Produksi Zero Tahun ke-{}".format(T))
-st.write(df_zero[df_zero["tahun"]==T])
+st.write(df_nol[df_nol["tahun"]==T])
 st.write("Tabel Zero per Tahun")
-st.write(df_zero)
+st.write(df_nol)
