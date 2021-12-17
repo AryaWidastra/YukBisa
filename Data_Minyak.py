@@ -41,7 +41,7 @@ datafr = CSV.dataFrame
 datafr_info = JSON.dataFrame
 
 ListNegara = datafr_info["name"].tolist()
-negara = st.selectbox("Pilih nama negara: ", ListNegara) 
+negara = st.sidebar.selectbox("Pilih nama negara: ", ListNegara) 
 kode_negara = datafr_info[datafr_info["name"] == negara]["alpha-3"].tolist()[0]
 
 st.write("Kode negara   :", kode_negara)
@@ -56,7 +56,7 @@ if len(dict) == 0:
 else:
     st.write(pd.DataFrame(dict))
     plt.title("Grafik Produksi Minyak Mentah Terhadap Waktu Negara {}".format(negara))
-    plt.plot(T,P,label="Actual")
+    plt.plot(T,P,label="Data Produksi")
     plt.xlabel("Tahun")
     plt.ylabel("Jumlah Produksi")
     plt.legend()
@@ -67,8 +67,8 @@ st.header("Bagian Kedua")
 st.write("Grafik yang menunjukan B-besar negara dengan jumlah produksi terbesar pada tahun T")
 
 st.sidebar.subheader("Konfigurasi Bagian 2")
-b = st.sidebar.number_input("Masukkan jumlah besar negara teratas yang diinginkan",  min_value=1, max_value=None)
-t = st.idebar.number_input("Masukkan tahun produksi",  min_value=1, max_value=None)
+b = st.sidebar.number_input("Masukkan jumlah besar negara teratas yang diinginkan",  minimal=1, maximal=None)
+t = st.sidebar.number_input("Masukkan tahun produksi",  min_value=1, max_value=None)
 
 df = datafr
 df1 = datafr_info
