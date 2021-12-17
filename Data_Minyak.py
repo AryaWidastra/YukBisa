@@ -41,11 +41,11 @@ datafr = CSV.dataFrame
 datafr_info = JSON.dataFrame
 
 ListNegara = datafr_info["name"].tolist()
-negara = st.sidebar.selectbox("Pilih nama negara: ", ListNegara) 
-kode_negara = (datafr_info[datafr_info["name"] == negara]["alpha-3"].tolist()[0])
+negara = st.selectbox("Pilih nama negara: ", ListNegara) 
+kode_negara = datafr_info[datafr_info["name"] == negara]["alpha-3"].tolist()[0]
 
-st.write("Kode negara:", kode_negara)
-st.write("Negara:",negara)
+st.write("Kode negara   :", kode_negara)
+st.write("Negara        :",negara)
 
 T = datafr[datafr["kode_negara"] == kode_negara] ["tahun"].tolist()
 P = datafr[datafr["kode_negara"] == kode_negara] ["produksi"].tolist()
@@ -62,13 +62,13 @@ else:
     plt.legend()
     st.pyplot(plt)
 
-### (b) B-besar negara dengan jumlah produksi terbesar pada tahun T"
+### (b) B-besar negara dengan jumlah produksi terbesar pada tahun T ###
 st.header("Bagian Kedua")
 st.write("Grafik yang menunjukan B-besar negara dengan jumlah produksi terbesar pada tahun T")
 
 st.sidebar.subheader("Konfigurasi Bagian 2")
-b = st.sidebar.number_input("Masukkan jumlah besar negara teratas yang diinginkan", minimal=1, maximal=None)
-t = st.idebar.number_input("Masukkan tahun produksi", minimal=1971, maximal=2015)
+b = st.sidebar.number_input("Masukkan jumlah besar negara teratas yang diinginkan",  min_value=1, max_value=None)
+t = st.idebar.number_input("Masukkan tahun produksi",  min_value=1, max_value=None)
 
 df = datafr
 df1 = datafr_info
