@@ -117,11 +117,11 @@ for kode in kode_negara:
         negara = df1[df1["alpha-3"] == kode] ['name'].tolist()[0]
         Total_produksi.append(np.sum(np.array(produksi)))
         negara.append(negara)
-    except:
-        continue
+    except: continue
 dict = {"negara":negara,"Total_produksi":Total_produksi}
 df2 = pd.DataFrame(dict)
 df2 = df2.sort_values('Total_produksi',ascending=False).reset_index()
+st.write(df2)
 plt.clf()
 
 plt.title("{c} Besar Negara dengan Produksi Terbesar Keseluruhan".format(c=c))
@@ -139,7 +139,7 @@ st.write("-nama lengkap negara,kode negara,region,dan sub-region dengan jumlah p
 st.write("-nama lengkap negara,kode negara,region,dan sub-region dengan jumlah produksi = 0 pada tahun yang dipilih dan keseluruhan tahun.")
 
 st.sidebar.subheader("Konfigurasi Bagian 4")
-T = st.sidebar.number_input("Tahun Produksi", minimal=1971, maximal=2015)
+T = st.sidebar.number_input("Tahun Produksi", min_value = 1971, max_value = 2015)
 df = CSV.dataFrame
 df1 = JSON.dataFrame
 tahun = list(dict.fromkeys(df["tahun"].tolist()))
