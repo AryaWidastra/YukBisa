@@ -100,12 +100,11 @@ plt.ylabel("Besar Produksi")
 st.pyplot(plt)
 
 ## (c) Grafik yang menunjukan B-besar negara dengan jumlah produksi terbesar secara kumulatif keseluruhan tahun
-from matplotlib.pyplot import colormaps
 st.header("Bagian Ketiga")
 st.write("Grafik yang menunjukan B-besar negara dengan jumlahproduksi terbesar secara kumulatif keseluruhan tahun, dimana nilai B dapat dipilih oleh user secara interaktif")
 
 st.sidebar.subheader("Konfigurasi Bagian 3")
-c = st.sidebar.number_input("Masukkan jumlah besar negara teratas yang diinginkan",  min_value=1, max_value=None)
+c = st.sidebar.number_input("Masukkan jumlah besar negara teratas yang diinginkan",  min_value = 1, max_value = None)
 df = datafr
 df1 = datafr_info
 kode_negara = df["kode_negara"].tolist()
@@ -126,7 +125,7 @@ df2 = df2.sort_values('Total_produksi',ascending=False).reset_index()
 plt.clf()
 
 plt.title("{c} Besar Negara dengan Produksi Terbesar Keseluruhan".format(c=c))
-plt.bar(df2["negara'][:c],df2['Total_produksi"][:c],width=0.5, bottom=None, align="center",colormaps="Diverging", edgecolor="rosybrown", data=None, zorder=3)
+plt.bar(df2["negara'][:c],df2['Total_produksi"][:c],width=0.5, bottom=None, align="center",color="Blue", edgecolor="rosybrown", data=None, zorder=3)
 plt.grid(True, color="maroon", linewidth="0.5", linestyle="-.", zorder=0)
 plt.xlabel('Negara')
 plt.ylabel('Total produksi')
