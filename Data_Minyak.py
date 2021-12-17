@@ -38,10 +38,10 @@ st.write("Grafik jumlah produksi minyak mentah terhadap waktu (tahun) dari suatu
 st.sidebar.subheader("Konfigurasi Bagian Pertama")
 datafr = CSV.dataFrame
 datafr_info = JSON.dataFrame
-kode_negara = datafr_info[datafr_info["name"] == negara]["alpha-3"].tolist()[0]
-if kode_negara in datafr["kode_negara"].tolist():ListNegara = datafr_info["name"].tolist()
+
 ListNegara = datafr_info["name"].tolist()
 negara = st.selectbox("Pilih nama negara: ", ListNegara) 
+kode_negara = datafr_info[datafr_info["name"] == negara]["alpha-3"].tolist()[0]
 
 st.write("Kode negara:", kode_negara)
 st.write("Negara:",negara)
@@ -58,17 +58,19 @@ if c>=0:
     persamaan = "y={m:.2f}x+{c:.2f}".format(m=m,c=c)
 else:
     persamaan = "y={m:.2f}x{c:.2f}".format(m=m,c=c)'''
+if kode_negara not in datafr["kode_negara"]:
+    st.write("Tidak terdapat data"
+else :
+    dict = {"tahun":T,"produksi":P}
+    st.write(pd.DataFrame(dict))
 
-dict = {"tahun":T,"produksi":P}
-st.write(pd.DataFrame(dict))
-
-plt.title("Grafik Produksi Minyak Mentah Terhadap Waktu Negara {}".format(negara))
-plt.plot(T,P,label="Actual")
+    plt.title("Grafik Produksi Minyak Mentah Terhadap Waktu Negara {}".format(negara))
+    plt.plot(T,P,label="Actual")
 '''plt.plot(T,trend,label="Trend\n{}".format(persamaan))'''
-plt.xlabel("Tahun")
-plt.ylabel("Jumlah Produksi")
-plt.legend()
-st.pyplot(plt)
+    plt.xlabel("Tahun")
+    plt.ylabel("Jumlah Produksi")
+    plt.legend()
+    st.pyplot(plt)
 
 ### (b) B-besar negara dengan jumlah produksi terbesar pada tahun T"
 st.header("Bagian Kedua")
