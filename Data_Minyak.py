@@ -35,12 +35,13 @@ st.sidebar.subheader("Pengaturan Konfigurasi Tampilan")
 ######## (a) Grafik jumlah produksi minyak mentah terhadap waktu (tahun) dari suatu negara N ######
 st.header("Bagian Pertama")
 st.write("Grafik jumlah produksi minyak mentah terhadap waktu (tahun) dari suatu negara")
-st.subheader("Konfigurasi Bagian 1")
+st.sidebar.subheader("Konfigurasi Bagian Pertama")
 datafr = CSV.dataFrame
 datafr_info = JSON.dataFrame
+kode_negara = datafr_info[datafr_info["name"] == negara]["alpha-3"].tolist()[0]
+if kode_negara in datafr["kode_negara"].tolist():ListNegara = datafr_info["name"].tolist()
 ListNegara = datafr_info["name"].tolist()
 negara = st.selectbox("Pilih nama negara: ", ListNegara) 
-kode_negara = datafr_info[datafr_info["name"] == negara]["alpha-3"].tolist()[0]
 
 st.write("Kode negara:", kode_negara)
 st.write("Negara:",negara)
