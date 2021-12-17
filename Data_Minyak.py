@@ -68,7 +68,7 @@ st.write("Grafik yang menunjukan B-besar negara dengan jumlah produksi terbesar 
 
 st.sidebar.subheader("Konfigurasi Bagian 2")
 b = st.sidebar.number_input("Masukkan jumlah besar negara teratas yang diinginkan",  min_value=1, max_value=None)
-t = st.sidebar.number_input("Masukkan tahun produksi",  min_value=1, max_value=None)
+t = st.sidebar.number_input("Masukkan tahun produksi",  min_value=1971, max_value=2015)
 
 df = datafr
 df1 = datafr_info
