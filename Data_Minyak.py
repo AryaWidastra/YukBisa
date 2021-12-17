@@ -125,10 +125,10 @@ df2 = df2.sort_values('Total_produksi',ascending=False).reset_index()
 plt.clf()
 
 plt.title("{c} Besar Negara dengan Produksi Terbesar Keseluruhan".format(c=c))
-plt.bar(df2["negara'][:c],df2['Total_produksi"][:c],width=0.5, bottom=None, align="center",color="Blue", edgecolor="rosybrown", data=None, zorder=3)
+plt.bar(df2["negara"][:c],df2["Total_produksi"][:c],width=0.5, bottom=None, align="center",color="Blue", edgecolor="rosybrown", data=None, zorder=3)
 plt.grid(True, color="maroon", linewidth="0.5", linestyle="-.", zorder=0)
-plt.xlabel('Negara')
-plt.ylabel('Total produksi')
+plt.xlabel("Negara")
+plt.ylabel("Total produksi")
 st.pyplot(plt)
 
 ## (d) INFORMASI ###
