@@ -89,7 +89,7 @@ for kode in kode_negara:
 dict = {"negara":negara_tahun,"Produksi_terbanyak":Produksi_terbanyak}
 df2 = pd.DataFrame(dict)
 df2 = df2.sort_values("Produksi_terbanyak",ascending=False).reset_index()
-st.write(df2[:b])
+st.write(df2)
 plt.clf()
 
 plt.title("{b} Besar Negara dengan Produksi Terbesar pada Tahun {t}".format(b = b, t = t))
