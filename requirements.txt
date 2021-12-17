@@ -1,4 +1,9 @@
-streamlit==1.2.0
-pandas
-numpy
-matplotlib
+numpy 
+pandas 
+matplotlib.pyplot 
+matplotlib 
+streamlit 
+HandleofFile 
+sklearn
+plotly
+plotly
