@@ -58,7 +58,7 @@ if c>=0:
     persamaan = "y={m:.2f}x+{c:.2f}".format(m=m,c=c)
 else:
     persamaan = "y={m:.2f}x{c:.2f}".format(m=m,c=c)'''
-for x = kode_negara:
+for x == kode_negara:
     if x not in datafr["kode_negara"]:
         st.write("Tidak terdapat data")
     else:
