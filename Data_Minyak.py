@@ -23,6 +23,7 @@ st.set_page_config(layout="wide")  # this needs to be the first Streamlit comman
 st.title("Data Produksi Minyak Mentah dari Berbagai Negara di Seluruh Dunia")
 st.header("Aplikasi Data Produksi Minyak Mentah")
 st.markdown("*Sumber data berasal dari produksi_minyak_mentah.csv*")
+st.markdown("Silahkan isi konfigurasi tampilan di kiri layar")
 ############### title ###############)
 
 ############### sidebar ###############
@@ -48,16 +49,6 @@ st.write("Negara:",negara)
 
 T = datafr[datafr["kode_negara"] == kode_negara] ["tahun"].tolist()
 P = datafr[datafr["kode_negara"] == kode_negara] ["produksi"].tolist()
-
-'''regresi = LinearRegression()
-regresi.fit(np.array(T).reshape(-1,1),np.array(P))
-c = regresi.intercept_
-m = regresi.coef_[0]
-trend = [c+m*x for x in T]
-if c>=0:
-    persamaan = "y={m:.2f}x+{c:.2f}".format(m=m,c=c)
-else:
-    persamaan = "y={m:.2f}x{c:.2f}".format(m=m,c=c)'''
 
 dict = {"tahun":T,"produksi":P}
 st.write(pd.DataFrame(dict))
