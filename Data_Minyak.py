@@ -59,11 +59,10 @@ if c>=0:
 else:
     persamaan = "y={m:.2f}x{c:.2f}".format(m=m,c=c)'''
 if kode_negara not in datafr["kode_negara"]:
-    st.write("Tidak terdapat data"
+    st.write("Tidak terdapat data")
 else:
     dict = {"tahun":T,"produksi":P}
     st.write(pd.DataFrame(dict))
-
     plt.title("Grafik Produksi Minyak Mentah Terhadap Waktu Negara {}".format(negara))
     plt.plot(T,P,label="Actual")
 '''plt.plot(T,trend,label="Trend\n{}".format(persamaan))'''
@@ -71,7 +70,6 @@ else:
     plt.ylabel("Jumlah Produksi")
     plt.legend()
     st.pyplot(plt)
-
 ### (b) B-besar negara dengan jumlah produksi terbesar pada tahun T"
 st.header("Bagian Kedua")
 st.write("Grafik yang menunjukan B-besar negara dengan jumlah produksi terbesar pada tahun T")
