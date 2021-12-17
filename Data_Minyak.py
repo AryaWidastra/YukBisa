@@ -60,7 +60,7 @@ else:
     persamaan = "y={m:.2f}x{c:.2f}".format(m=m,c=c)'''
 if kode_negara not in datafr["kode_negara"]:
     st.write("Tidak terdapat data"
-else :
+else:
     dict = {"tahun":T,"produksi":P}
     st.write(pd.DataFrame(dict))
 
