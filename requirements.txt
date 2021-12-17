@@ -1,9 +1,6 @@
 numpy 
 pandas 
-matplotlib.pyplot 
 matplotlib 
 streamlit 
-HandleofFile 
 sklearn
-plotly
 plotly
