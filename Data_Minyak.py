@@ -22,11 +22,11 @@ JSON = HandleofJson('kode_negara_lengkap.json')
 st.set_page_config(layout="wide")  # this needs to be the first Streamlit command called
 st.title("Data Produksi Minyak Mentah dari Berbagai Negara di Seluruh Dunia")
 st.header("Aplikasi Data Produksi Minyak Mentah")
-st.markdown("*Sumber data berasal dari ...")
+st.markdown("*Sumber data berasal dari produksi_minyak_mentah*")
 ############### title ###############)
 
 ############### sidebar ###############
-image = Image.open('Oil_rig.png')
+image = Image.open('Oil_rig.jpg')
 st.sidebar.image(image)
 
 st.sidebar.title("Pengaturan")
