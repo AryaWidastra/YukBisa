@@ -40,7 +40,7 @@ datafr = CSV.dataFrame
 datafr_info = JSON.dataFrame
 ListNegara = datafr_info["name"].tolist()
 negara = st.sidebar.selectbox("Pilih nama negara: ", ListNegara) 
-kode_negara = datafr_info[datafr_info["name"] == negara]["yuuk"].tolist()[0]
+kode_negara = datafr_info[datafr_info["name"] == negara]["alpha-3"].tolist()[0]
 
 st.write("Kode negara:", kode_negara)
 st.write("Negara:",negara)
@@ -88,7 +88,7 @@ kode_negara = list(dict.fromkeys(kode_negara))
 for kode in kode_negara:
     try:
         produksi = df[df["kode_negara"] == kode ]["produksi"].tolist()
-        negara = df1[df1["yuuk"] == kode] ["name"].tolist()[0]
+        negara = df1[df1["alpha-3"] == kode] ["name"].tolist()[0]
         Produksi_terbanyak.append(max(produksi))
         negara_tahun.append(negara)
     except:
@@ -122,7 +122,7 @@ negara = []
 for kode in kode_negara:
     try:
         produksi = df[df["kode_negara"] == kode] ["produksi"].tolist()
-        negara = df1[df1["yuuk"] == kode] ['name'].tolist()[0]
+        negara = df1[df1["alpha-3"] == kode] ['name'].tolist()[0]
         Total_produksi.append(np.sum(np.array(produksi)))
         negara.append(negara)
     except:
@@ -165,26 +165,26 @@ for t in tahun:
     # maksimum
     kode_negara = df_per_tahun[df_per_tahun["produksi"]==maks_prod]["kode_negara"].tolist()[0]
     if kode_negara == "WLD": kode_negara = "WLF"
-    dict_maks["negara"].append(df1[df1["yuuk"]==kode_negara]["name"].tolist()[0])
+    dict_maks["negara"].append(df1[df1["alpha-3"]==kode_negara]["name"].tolist()[0])
     dict_maks["kode_negara"].append(kode_negara)
-    dict_maks["region"].append(df1[df1["yuuk"]==kode_negara]["region"].tolist()[0])
-    dict_maks["sub_region"].append(df1[df1["yuuk"]==kode_negara]["sub-region"].tolist()[0])
+    dict_maks["region"].append(df1[df1["alpha-3"]==kode_negara]["region"].tolist()[0])
+    dict_maks["sub_region"].append(df1[df1["alpha-3"]==kode_negara]["sub-region"].tolist()[0])
     dict_maks["produksi"].append(maks_prod)
     # minimum != 0
     kode_negara = df_per_tahun[df_per_tahun["produksi"]==min_prod]["kode_negara"].tolist()[0]
     if kode_negara == "WLD":kode_negara = "WLF"
-    dict_min["negara"].append(df1[df1["yuuk"]==kode_negara]["name"].tolist()[0])
+    dict_min["negara"].append(df1[df1["alpha-3"]==kode_negara]["name"].tolist()[0])
     dict_min["kode_negara"].append(kode_negara)
-    dict_min["region"].append(df1[df1["yuuk"]==kode_negara]["region"].tolist()[0])
-    dict_min["sub_region"].append(df1[df1["yuuk"]==kode_negara]["sub-region"].tolist()[0])
+    dict_min["region"].append(df1[df1["alpha-3"]==kode_negara]["region"].tolist()[0])
+    dict_min["sub_region"].append(df1[df1["alpha-3"]==kode_negara]["sub-region"].tolist()[0])
     dict_min["produksi"].append(min_prod)
     # zero == 0
     kode_negara = df_per_tahun[df_per_tahun["produksi"]==zero_prod]["kode_negara"].tolist()[0]
     if kode_negara == "WLD":kode_negara = "WLF"
-    dict_nol["negara"].append(df1[df1["yuuk"]==kode_negara]["name"].tolist()[0])
+    dict_nol["negara"].append(df1[df1["alpha-3"]==kode_negara]["name"].tolist()[0])
     dict_nol["kode_negara"].append(kode_negara)
-    dict_nol["region"].append(df1[df1["yuuk"]==kode_negara]["region"].tolist()[0])
-    dict_nol["sub_region"].append(df1[df1["yuuk"]==kode_negara]["sub-region"].tolist()[0])
+    dict_nol["region"].append(df1[df1["alpha-3"]==kode_negara]["region"].tolist()[0])
+    dict_nol["sub_region"].append(df1[df1["alpha-3"]==kode_negara]["sub-region"].tolist()[0])
     dict_nol["produksi"].append(zero_prod)
 df_maks = pd.DataFrame(dict_maks)
 df_min = pd.DataFrame(dict_min)
